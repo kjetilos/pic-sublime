@@ -1,0 +1,99 @@
+{
+    "fileTypes": [
+        "asm"
+    ], 
+    "name": "PIC Assembly", 
+    "patterns": [
+        {
+            "match": "\\b(?i)(v)?(addwf|andwf|clrf|clrw|comf|decf|decfsz|incf|incfsz|iorwf|movf|movwf|nop|rlf|rrf|subwf|swapf|xorwf|bcf|bsf|btfsc|btfss|addlw|andlw|call|clrwdt|goto|iorlw|movlw|retfie|retlw|return|sleep|sublw|xorlw)\\b", 
+            "name": "keyword.control.assembly"
+        },
+        {  
+            "name": "variable.parameter.register.assembly",
+            "match": "\\b(?i)(f|w)\\b"
+        },
+        {  
+            "name": "constant.character.decimal.assembly",
+            "match": "\\b[0-9]+\\b"
+        },
+        {  
+            "name": "constant.character.hexadecimal.assembly",
+            "match": "\\b(0x)(?i)[A-F0-9]+\\b"
+        },
+        {  
+            "name": "constant.character.hexadecimal.assembly",
+            "match": "\\b(?i)[A-F0-9]+h\\b"
+        },
+        {  
+            "name": "constant.character.binary.assembly",
+            "match": "\\b(?i)(0|1)+b\\b"
+        },
+        {  
+            "name": "string.assembly",
+            "match": "(\"|').*?(\"|')"
+        },
+        { "name": "support.function.directive.assembly",
+          "begin": "^\\[",
+          "end": "\\]"
+        },
+        { "name": "support.function.directive.assembly",
+          "match": "(^struc) ([_a-zA-Z][_a-zA-Z0-9]*)",
+          "captures": {
+              "2": { "name": "entity.name.function.assembly" }
+          }
+        },
+        { "name": "support.function.directive.assembly",
+          "match": "^endstruc"
+        },
+        { "name": "support.function.directive.assembly",
+          "match": "^%macro ([_a-zA-Z][_a-zA-Z0-9]*) ([0-9]+)",
+          "captures": {
+              "1": { "name": "entity.name.function.assembly" },
+              "2": { "name": "constant.character.assembly" }
+          }
+        },
+        { "name": "support.function.directive.assembly",
+          "match": "^%endmacro"
+        },
+        {  
+            "match": "\\s*(?i)(%define|%ifndef|%xdefine|%idefine|%undef|%assign|%defstr|%strcat|%strlen|%substr|%00|%0|%rotate|%rep|%endrep|%include|\\$\\$|\\$|%unmacro|%if|%elif|%else|%endif|%(el)?ifdef|%(el)?ifmacro|%(el)?ifctx|%(el)?ifidn|%(el)?ifidni|%(el)?ifid|%(el)?ifnum|%(el)?ifstr|%(el)?iftoken|%(el)?ifempty|%(el)?ifenv|%pathsearch|%depend|%use|%push|%pop|%repl|%arg|%stacksize|%local|%error|%warning|%fatal|%line|%!|%comment|%endcomment|__NASM_VERSION_ID__|__NASM_VER__|__FILE__|__LINE__|__BITS__|__OUTPUT_FORMAT__|__DATE__|__TIME__|__DATE_NUM__|_TIME__NUM__|__UTC_DATE__|__UTC_TIME__|__UTC_DATE_NUM__|__UTC_TIME_NUM__|__POSIX_TIME__|__PASS__|ISTRUC|AT|IEND|BITS 16|BITS 32|BITS 64|USE16|USE32|__SECT__|ABSOLUTE|EXTERN|GLOBAL|COMMON|CPU|FLOAT)\\b ?([_a-zA-Z][_a-zA-Z0-9]*)?",
+            "captures": {
+                "1": { "name": "support.function.directive.assembly" },
+                "13": { "name": "entity.name.function.assembly" }
+            }
+        },
+        {  "name": "support.function.directive.assembly",
+           "match": "\\b(?i)(d(b|w|d|q|t|o|y)|res(b|w|d|q|t|o)|equ|times|align|alignb|sectalign|section|ptr|byte|word|dword|qword|incbin|)\\b"
+        },
+        {  
+            "name": "comment.assembly",
+            "match": "(\\s)*;.*$"
+        },
+        {  
+            "name": "source.assembly",
+            "match": "(,|\\[|\\]|\\+|\\-|\\*)"
+        },
+        {  
+            "name": "entity.name.function.assembly",
+            "match": "^\\s*%%.+?:$"
+        },
+        {  
+            "name": "entity.name.function.assembly",
+            "match": "^\\s*%\\$.+?:$"
+        },
+        {  
+            "name": "entity.name.function.assembly",
+            "match": "^\\.?.+?:$"
+        },
+        {  
+            "name": "entity.name.function.assembly",
+            "match": "^\\.?.+?\\b"
+        },
+        {  
+            "name": "entity.name.function.assembly",
+            "match": ".+?"
+        }
+    ], 
+    "scopeName": "source.assembly", 
+    "uuid": "b23e10d9-4cfd-4ac0-84e2-5e6845522206"
+}
